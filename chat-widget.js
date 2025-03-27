@@ -458,8 +458,8 @@
     // Regex para detectar links HTTP/HTTPS
     const urlRegex = /(https?:\/\/[^\s]+)/g
 
-    // Substitui as URLs encontradas por links HTML
-    return text.replace(urlRegex, (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`)
+    // Substitui as URLs encontradas por links HTML com texto "Link"
+    return text.replace(urlRegex, (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">Checkout PersonCare</a>`)
   }
 
   // Função para exibir indicador de digitação
@@ -769,3 +769,4 @@
     })
   })
 })()
+
