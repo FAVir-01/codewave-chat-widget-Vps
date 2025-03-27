@@ -311,6 +311,19 @@
                 opacity: 0.4;
             }
         }
+
+        /* Estilo para links nos mensagens */
+        .chat-widget .chat-message a {
+            color: inherit;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+        .chat-widget .chat-message.user a {
+            color: white;
+        }
+        .chat-widget .chat-message.bot a {
+            color: var(--chat--color-primary);
+        }
     `
 
   // Carrega a fonte Geist
@@ -439,6 +452,15 @@
   const messagesContainer = chatContainer.querySelector(".chat-messages")
   const textarea = chatContainer.querySelector("textarea")
   const sendButton = chatContainer.querySelector('button[type="submit"]')
+
+  // Função para converter URLs em links clicáveis
+  function linkifyText(text) {
+    // Regex para detectar links HTTP/HTTPS
+    const urlRegex = /(https?:\/\/[^\s]+)/g
+
+    // Substitui as URLs encontradas por links HTML
+    return text.replace(urlRegex, (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`)
+  }
 
   // Função para exibir indicador de digitação
   function showTypingIndicator() {
@@ -659,7 +681,9 @@
       // Exibe a resposta final
       const botMessageDiv = document.createElement("div")
       botMessageDiv.className = "chat-message bot"
-      botMessageDiv.textContent = updatedOutput || "Desculpe, não recebemos uma resposta. Tente novamente."
+      botMessageDiv.innerHTML = updatedOutput
+        ? linkifyText(updatedOutput)
+        : "Desculpe, não recebemos uma resposta. Tente novamente."
       messagesContainer.appendChild(botMessageDiv)
       messagesContainer.scrollTop = messagesContainer.scrollHeight
     } catch (error) {
@@ -683,7 +707,7 @@
     // Mostra msg do usuário
     const userMessageDiv = document.createElement("div")
     userMessageDiv.className = "chat-message user"
-    userMessageDiv.textContent = message
+    userMessageDiv.innerHTML = linkifyText(message)
     messagesContainer.appendChild(userMessageDiv)
     messagesContainer.scrollTop = messagesContainer.scrollHeight
 
@@ -701,7 +725,9 @@
     // Exibe a resposta final
     const botMessageDiv = document.createElement("div")
     botMessageDiv.className = "chat-message bot"
-    botMessageDiv.textContent = updatedOutput || "Desculpe, não recebemos uma resposta. Tente novamente."
+    botMessageDiv.innerHTML = updatedOutput
+      ? linkifyText(updatedOutput)
+      : "Desculpe, não recebemos uma resposta. Tente novamente."
     messagesContainer.appendChild(botMessageDiv)
     messagesContainer.scrollTop = messagesContainer.scrollHeight
   }
@@ -743,4 +769,3 @@
     })
   })
 })()
-
