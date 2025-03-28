@@ -14,7 +14,7 @@
   let typingIndicator = null
   let pollTimer = null
 
-  // Configuração padrão
+  // Modificar a configuração padrão para incluir o novo texto e link do Powered by
   const defaultConfig = {
     webhook: { url: "", route: "" },
     branding: {
@@ -22,7 +22,10 @@
       name: "",
       welcomeText: "",
       responseTimeText: "",
-      poweredBy: { text: "Powered by CodeWave.ia", link: "https://www.instagram.com/codewave.ia?igsh=N283MXpvc25laHFi" },
+      poweredBy: {
+        text: "Powered by CodeWave.ia",
+        link: "https://www.instagram.com/codewave.ia?igsh=N283MXpvc25laHFi",
+      },
     },
     style: {
       primaryColor: "#854fff",
@@ -385,22 +388,23 @@
             <p class="response-text">${config.branding.responseTimeText}</p>
         </div>`
 
+    // Também atualizar a parte onde o HTML do chat interface é criado
     const chatInterfaceHTML = `
-        <div class="chat-interface">
-            <div class="brand-header">
-                <img src="${config.branding.logo}" alt="${config.branding.name}">
-                <span>${config.branding.name}</span>
-                <button class="close-button">×</button>
-            </div>
-            <div class="chat-messages"></div>
-            <div class="chat-input">
-                <textarea placeholder="Type your message here..." rows="1"></textarea>
-                <button type="submit">Send</button>
-            </div>
-            <div class="chat-footer">
-                <a href="${config.branding.poweredBy?.link || "#"}" target="_blank">${config.branding.poweredBy?.text || "Powered by ChatWidget"}</a>
-            </div>
-        </div>`
+    <div class="chat-interface">
+        <div class="brand-header">
+            <img src="${config.branding.logo}" alt="${config.branding.name}">
+            <span>${config.branding.name}</span>
+            <button class="close-button">×</button>
+        </div>
+        <div class="chat-messages"></div>
+        <div class="chat-input">
+            <textarea placeholder="Type your message here..." rows="1"></textarea>
+            <button type="submit">Send</button>
+        </div>
+        <div class="chat-footer">
+            <a href="${config.branding.poweredBy?.link || "https://www.instagram.com/codewave.ia?igsh=N283MXpvc25laHFi"}" target="_blank">${config.branding.poweredBy?.text || "Powered by CodeWave.ia"}</a>
+        </div>
+    </div>`
 
     chatContainer.innerHTML = newConversationHTML + chatInterfaceHTML
 
