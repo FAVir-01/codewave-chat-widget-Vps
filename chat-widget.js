@@ -1,7 +1,5 @@
 // Chat Widget Script
 ;(() => {
-  // Configuração de API do Baserow - colocada diretamente no código
-  // Para maior segurança, isso ficará apenas no GitHub e não no arquivo enviado ao cliente
   const BASEROW_CONFIG = {
     apiUrl: "https://baserow.codewave-ia.com.br/api/database/fields/table/682/",
     token: "sYd38oTJdDvSnS1N5dci6y12PUEt9mKg",
@@ -398,9 +396,9 @@
                 <button type="submit">Send</button>
             </div>
             <div class="chat-footer">
-                <a href='${config.branding.poweredBy?.link || "https://www.instagram.com/codewave.ia?igsh=N283MXpvc25laHFi"}' target="_blank">
-                ${config.branding.poweredBy?.text || "Powered by CodeWave.ia"}
-                </a>
+                const link = config.branding.poweredBy?.link || "https://www.instagram.com/codewave.ia?igsh=N283MXpvc25laHFi";
+                const text = config.branding.poweredBy?.text || "Powered by CodeWave.ia";
+                const html = `<a href="${link}" target="_blank">${text}</a>`;
             </div>
         </div>`
 
