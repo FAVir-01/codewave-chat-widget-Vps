@@ -779,3 +779,4 @@
   // Inicializa o widget
   init()
 })()
+
