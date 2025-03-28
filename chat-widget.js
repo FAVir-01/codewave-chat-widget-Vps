@@ -1,7 +1,5 @@
 // Chat Widget Script
 ;(() => {
-  // Configuração de API do Baserow - colocada diretamente no código
-  // Para maior segurança, isso ficará apenas no GitHub e não no arquivo enviado ao cliente
   const BASEROW_CONFIG = {
     apiUrl: "https://baserow.codewave-ia.com.br/api/database/fields/table/682/",
     token: "sYd38oTJdDvSnS1N5dci6y12PUEt9mKg",
@@ -14,7 +12,6 @@
   let typingIndicator = null
   let pollTimer = null
 
-  // Modificar a configuração padrão para incluir o novo texto e link do Powered by
   const defaultConfig = {
     webhook: { url: "", route: "" },
     branding: {
