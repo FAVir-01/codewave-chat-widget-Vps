@@ -398,7 +398,7 @@
                 <button type="submit">Send</button>
             </div>
             <div class="chat-footer">
-                <a href="${config.branding.poweredBy?.link || "https://www.instagram.com/codewave.ia?igsh=N283MXpvc25laHFi"}" target="_blank">${config.branding.poweredBy?.text || "Powered by CodeWave.ia"}</a>
+                <a href="${config.branding.poweredBy?.link || "#"}" target="_blank">${config.branding.poweredBy?.text || "Powered by CodeWave.ia"}</a>
             </div>
         </div>`
 
