@@ -22,7 +22,7 @@
       name: "",
       welcomeText: "",
       responseTimeText: "",
-      poweredBy: { text: "Powered by ChatWidget", link: "#" },
+      poweredBy: { text: "Powered by CodeWave.ia", link: "https://www.instagram.com/codewave.ia?igsh=N283MXpvc25laHFi" },
     },
     style: {
       primaryColor: "#854fff",
