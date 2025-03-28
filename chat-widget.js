@@ -465,13 +465,11 @@
 
   // Função para converter URLs em links clicáveis - otimizada
   function linkifyText(text) {
-    // Regex para detectar links HTTP/HTTPS
-    const urlRegex = /(https?:\/\/[^\s]+)/g
-    // Substitui as URLs encontradas por links HTML
-    return text.replace(
-      urlRegex,
-      () => `<a href="https://personcare.com" target="_blank" rel="noopener noreferrer">Checkout PersonCare</a>`,
-    )
+  const urlRegex = /(https?:\/\/[^\s]+)/g
+  return text.replace(
+    urlRegex,
+    (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">Checkout PersonCare</a>`
+  )
   }
 
   // Função para exibir indicador de digitação - otimizada para reutilização
