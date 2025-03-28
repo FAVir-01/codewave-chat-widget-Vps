@@ -2,37 +2,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Widget</title>
+    <title>Chat Bot</title>
     <!-- Widget Configuration -->
     <script>
-      // Atualize a configuração do Baserow com os novos valores
-window.ChatWidgetConfig = {
-  webhook: {
-    url: '<Seu webhook>',
-    route: 'general'
-  },
-  branding: {
-    logo: 'https://avatars.githubusercontent.com/u/57262511?v=4',
-    name: 'Rebecca',
-    welcomeText: 'Olá 👋, como podemos ajudar?',
-    responseTimeText: 'Normalmente respondemos imediatamente'
-  },
-  style: {
-    primaryColor: '#854fff',
-    secondaryColor: '#6b3fd4',
-    position: 'right',
-    backgroundColor: '#ffffff',
-    fontColor: '#333333'
-  },
-  baserow: {
-    apiUrl: 'https://baserow.codewave-ia.com.br/api/database/fields/table/682/',
-    token: 'sYd38oTJdDvSnS1N5dci6y12PUEt9mKg'
-  }
-};
+      // Configuração sem a chave de API
+      window.ChatWidgetConfig = {
+        webhook: {
+          url: '<Seu webhook>',
+          route: 'general'
+        },
+        branding: {
+          logo: 'https://avatars.githubusercontent.com/u/57262511?v=4',
+          name: 'Rebecca',
+          welcomeText: 'Olá 👋, como podemos ajudar?',
+          responseTimeText: 'Normalmente respondemos imediatamente'
+        },
+        style: {
+          primaryColor: '#854fff',
+          secondaryColor: '#6b3fd4',
+          position: 'right',
+          backgroundColor: '#ffffff',
+          fontColor: '#333333'
+        }
+      };
     </script>
   </head>
   <body>
     <!-- Widget Script (carregado DEPOIS da config) -->
-    <script src="chat-widget.js"></script>
+    <script src="https://seu-github-user.github.io/chat-widget/chat-widget.js"></script>
   </body>
 </html>
+
